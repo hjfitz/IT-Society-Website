@@ -1,0 +1,19 @@
+{
+  "name": "It Soc Site",
+  "version": "0.0.1",
+  "private": false,
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index",
+    "full-dev": "atom . && nodemon index"
+  },
+  "repository": "https://github.com/itsoc-uop/site",
+  "author": "Harry Fitzgerald <up780461@myport.ac.uk>",
+  "license": "GPLv2",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}

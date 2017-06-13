@@ -1,19 +1,24 @@
 {
-  "name": "It Soc Site",
-  "version": "0.0.1",
-  "private": false,
+  "name": "itsoc-site",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
-    "full-dev": "atom . && nodemon index"
-  },
-  "repository": "https://github.com/itsoc-uop/site",
-  "author": "Harry Fitzgerald <up780461@myport.ac.uk>",
-  "license": "GPLv2",
-  "devDependencies": {
-    "nodemon": "^1.11.0"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "full-dev": "nodemon ./bin/www && atom ."
   },
   "dependencies": {
-    "express": "^4.15.3"
+    "body-parser": "~1.17.1",
+    "bower": "^1.8.0",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "hbs": "~4.0.1",
+    "materialize-css": "^0.98.2",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

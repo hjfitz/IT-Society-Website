@@ -6,7 +6,10 @@ console.log(committeeInfo);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'IT Soc' });
+  res.render('index', {
+    title: 'IT Soc',
+    layout: 'bignav'
+  });
 });
 
 router.get('/about', (req, res) => {

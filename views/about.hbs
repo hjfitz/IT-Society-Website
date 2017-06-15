@@ -1,18 +1,21 @@
 <link rel="stylesheet" href="stylesheets/about.css">
 
-<header class='center-align'>
-  <h1>Your 2017-18 Committee</h1>
-</header>
+<div class='container'>
 
-<div class='committee center-align'>
-{{#each members}}
-  <div class='member'>
-    <figure class=''>
-      <img src='images/committee/{{name}}.jpeg' alt='{{fullname}} - {{role}}'>
-      <figcaption class='member-role center-align'>{{role}}</figcaption>
-      <figcaption class='member-name center-align'>{{name}}</figcaption>
+  <header class='center-align'>
+    <h1>Your 2017-18 Committee</h1>
+  </header>
 
-    </figure>
+  <div class='committee center-align'>
+  {{#each members}}
+    <div class='member'>
+      <figure class=''>
+        <img src='images/committee/{{name}}.jpeg' alt='{{fullname}} - {{role}}'>
+        <figcaption class='member-role center-align'>{{role}}</figcaption>
+        <figcaption class='member-name center-align'>{{name}}</figcaption>
+
+      </figure>
+    </div>
+  {{/each}}
   </div>
-{{/each}}
 </div>

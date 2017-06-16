@@ -12,6 +12,13 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/two', (req, res) => {
+  res.render('index-2', {
+    title: 'IT Soc',
+    layout: 'bignav'
+  })
+})
+
 router.get('/about', (req, res) => {
   res.render('about', {
     title: 'About',

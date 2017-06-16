@@ -1,8 +1,10 @@
 <link rel=stylesheet href='stylesheets/index.css' />
 
 
+
 <div id='main-image' class='row '>
-  <div class="card z-depth-3">
+  <div class="card">
+   <div class="card-image">
     <div class="slider">
       <ul class="slides">
         <li>
@@ -30,6 +32,8 @@
     </div>
   </div>
 </div>
+  </div>
+
 
 <div class='row'>
   <div class="col s12 m6">
@@ -69,9 +73,8 @@
 
 </div>
 
-
 <script type='text/javascript'>
   $(document).ready(_ => {
-    $('.slider').slider({ indicators:false });
+    $('.slider').slider();
   });
 </script>

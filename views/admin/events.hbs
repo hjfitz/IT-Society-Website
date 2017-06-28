@@ -1,0 +1,85 @@
+<script type="text/javascript" src='/bower/materialize-clockpicker/dist/js/materialize.clockpicker.js'></script>
+<script type="text/javascript" src='/javascripts/admin/events.js'></script>
+<link rel="stylesheet" href="/bower/materialize-clockpicker/dist/css/materialize.clockpicker.css">
+<link rel="stylesheet" href="/stylesheets/admin.css">
+<div class='row'>
+  <div class='col s12'>
+        <form class="col s12">
+
+          <div class='row'>
+            <div class="input-field col s6">
+              <input id="event-name" type="text" class="validate">
+              <label for="event-name">Event Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="event-price" type="text" class="validate">
+              <label for="event-price">Price</label>
+            </div>
+          </div>
+
+          <div class='row'>
+              <div class="event-desc input-field col s12">
+                <textarea id="event-desc" class="materialize-textarea"></textarea>
+                <label for="event-desc">Description</label>
+              </div>
+
+            </div>
+
+
+          <div class='row'>
+                <div class='input-field col s4'>
+                  <label for='event-date'>Date of Event</label>
+                  <input id='event-date' type="date" class="datepicker">
+                </div>
+
+
+                  <div class="input-field col s4">
+                    <label for="time-begin">Start Time</label>
+                    <input id="time-begin" class="timepicker" type="time">
+                  </div>
+
+                  <div class="input-field col s4">
+                    <label for="time-end">End Time</label>
+                    <input id="time-end" class="timepicker" type="time">
+                  </div>
+
+          </div>
+
+          <div class='row'>
+            <!-- these may end up hidden/not on the page... -->
+            <div class="input-field col s6">
+              <input id="event-lat" type="text" class="validate">
+              <label for="event-lat">Latitude</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="event-lon" type="text" class="validate">
+              <label for="event-lon">Longitude</label>
+            </div>
+
+          </div>
+
+
+          <div class="row">
+            <a class="waves-effect waves-light btn deep-purple darken-2"><i class="material-icons left">done</i>Submit</a>
+            <a class="waves-effect waves-light btn amber darken-1"><i class="material-icons left">mode_edit</i>Clear</a>
+          </div>
+
+       </form>
+
+ </div>
+</div>
+<script type="text/javascript">
+
+  $('.datepicker').pickadate({
+     selectMonths: true, // Creates a dropdown to control month
+     selectYears: 0 // Creates a dropdown of 15 years to control year
+   });
+
+  $('.timepicker').pickatime({
+    twelvehour: false,
+    afterDone: function(Element, Time) {
+        console.log(Element, Time);
+    }
+  });
+
+</script>

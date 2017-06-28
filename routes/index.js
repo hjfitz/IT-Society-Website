@@ -2,8 +2,6 @@ const express = require('express');
 const committeeInfo = require('../data/soc.json');
 const router = express.Router();
 
-console.log(committeeInfo);
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
@@ -26,5 +24,6 @@ router.get('/about', (req, res) => {
     members: committeeInfo
   })
 })
+
 
 module.exports = router;

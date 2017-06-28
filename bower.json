@@ -17,6 +17,7 @@
     "tests"
   ],
   "dependencies": {
-    "materialize": "^0.98.2"
+    "materialize": "^0.98.2",
+    "materialize-clockpicker": "^0.1.1"
   }
 }

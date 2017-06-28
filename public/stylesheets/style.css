@@ -20,3 +20,14 @@ main {
 .socialicon:hover {
   opacity:1;
 }
+
+@media screen and (max-width: 420px) {
+  .socialicon {
+    max-width: 90px;
+    height:auto;
+  }
+}
+
+#main-image > div > div > div > ul.indicators > li.indicator-item.active {
+  background-color: #311b92;
+}

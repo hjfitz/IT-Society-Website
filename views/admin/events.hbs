@@ -1,5 +1,4 @@
 <script type="text/javascript" src='/bower/materialize-clockpicker/dist/js/materialize.clockpicker.js'></script>
-<script type="text/javascript" src='/javascripts/admin/events.js'></script>
 <link rel="stylesheet" href="/bower/materialize-clockpicker/dist/css/materialize.clockpicker.css">
 <link rel="stylesheet" href="/stylesheets/admin.css">
 <div class='row'>
@@ -47,6 +46,7 @@
 
           <div class='row'>
             <!-- these may end up hidden/not on the page... -->
+            <!-- this will be determined by google maps api in the future -->
             <div class="input-field col s6">
               <input id="event-lat" type="text" class="validate">
               <label for="event-lat">Latitude</label>
@@ -60,8 +60,8 @@
 
 
           <div class="row">
-            <a class="waves-effect waves-light btn deep-purple darken-2"><i class="material-icons left">done</i>Submit</a>
-            <a class="waves-effect waves-light btn amber darken-1"><i class="material-icons left">mode_edit</i>Clear</a>
+            <a id='submit' class="waves-effect waves-light btn deep-purple darken-2"><i class="material-icons left">done</i>Submit</a>
+            <a id='clear' class="waves-effect waves-light btn amber darken-1"><i class="material-icons left">mode_edit</i>Clear</a>
           </div>
 
        </form>
@@ -83,3 +83,4 @@
   });
 
 </script>
+<script type="text/javascript" src='/javascripts/admin/events.js'></script>

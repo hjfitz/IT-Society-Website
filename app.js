@@ -27,6 +27,12 @@ app.use('/pub', express.static(pub, {
 // but stick the html pages under the root.
 app.use('/', express.static(pub, { extensions: ['html'] }));
 
+// we only want the user to see the predefined files, under pubic
+// therefore, we send a 404 when they attempt to navigate elsewhere.
+app.use('*', (req, res) => {
+  res.status(404).send('404, page not found.');
+});
+
 console.log(chalk.yellow(`Attempting to listen on ...${serverLocation}`));
 
 app.listen(PORT);

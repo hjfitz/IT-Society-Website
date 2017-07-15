@@ -1,9 +1,0 @@
-[
-  { "name": "chloe", "role": "Vice President", "fullname": "Chloe Bryson" },
-  { "name": "jordan", "role": "President", "fullname": "Jordan Connor Parker" },
-  { "name": "hex", "role": "Treasurer", "fullname": "Hector Decimal" },
-  { "name": "harry", "role": "Web Sec", "fullname": "Harry Fitzgerald" },
-  { "name": "renz", "role": "Event Sec", "fullname": "Renz ???" },
-  { "name": "will", "role": "Social Sec", "fullname": "Will Dryden" },
-  { "name": "charlie", "role": "Media Sec", "fullname": "Charlie Carter" }
-]

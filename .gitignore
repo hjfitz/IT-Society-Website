@@ -60,5 +60,6 @@ typings/
 # ignore any databases
 *.db
 
-# ignore our builds
-bundle.*
+# ignore our builds and source map
+build/public/js/bundle.js
+build/public/js/bundle.js.map

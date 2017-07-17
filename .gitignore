@@ -61,4 +61,4 @@ typings/
 *.db
 
 # ignore our builds
-build/public/bundle.*
+bundle.*

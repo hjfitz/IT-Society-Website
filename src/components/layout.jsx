@@ -1,25 +1,17 @@
 import React from 'react';
-import { NavBar, NavItem } from 'react-materialize';
+import Nav from './partial/nav.jsx';
+import Footer from './partial/footer.jsx';
 
-const Nav = () => {
-  return (
-    <nav className="purple darken-4">
-      <div className="nav-wrapper">
-        <a className="brand-logo">The IT Society</a>
-        <NavItems />
-        <NavItems mobile />
-      </div>
-    </nav>
-  );
-};
+const color = 'purple darken-4';
 
 const Layout = (props) => {
   return (
     <div>
-      <Nav />
+      <Nav color={color} />
       <div className="container">
         {props.children}
       </div>
+      <Footer color={color} />
     </div>
   );
 };

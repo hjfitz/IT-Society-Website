@@ -1,3 +1,5 @@
+const Notifier = require('webpack-build-notifier');
+
 const config = {
   entry: ['babel-polyfill', './src/router.jsx'],
   output: {
@@ -12,6 +14,9 @@ const config = {
       loaders: ['babel-loader'],
     }],
   },
+  plugins: [
+    new Notifier({ title: 'IT Soc Website' }),
+  ],
 };
 
 module.exports = config;

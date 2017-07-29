@@ -1,18 +1,16 @@
 import React from 'react';
-import Nav from './partial/nav.jsx';
-import Footer from './partial/footer.jsx';
-import Card from './partial/card.jsx';
+import * as Partial from '../components/partial';
 
 const color = 'purple darken-4';
 
 const Layout = (props) => {
   return (
     <div>
-      <Nav color={color} />
+      <Partial.Nav color={color} />
       <div className="container">
         {props.children}
       </div>
-      <Footer color={color} />
+      <Partial.Footer color={color} />
     </div>
   );
 };

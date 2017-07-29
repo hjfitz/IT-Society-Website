@@ -1,5 +1,6 @@
 const express = require('express');
 const chalk = require('chalk');
+const path = require('path');
 
 const util = require('./util');
 
@@ -20,17 +21,11 @@ app.use('/', (req, res, next) => {
 console.log(__dirname);
 console.log(pub);
 // keep all of the resources on /pub
-app.use('/pub', express.static(pub, {
-  extensions: ['css', 'js', 'png', 'jpg'],
-}));
+app.use('/pub', express.static(pub));
 
 // but stick the html pages under the root.
-app.use('/', express.static(pub, { extensions: ['html'] }));
-
-// we only want the user to see the predefined files, under pubic
-// therefore, we send a 404 when they attempt to navigate elsewhere.
-app.use('*', (req, res) => {
-  res.status(404).send('404, page not found.');
+app.use('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/build/public/index.html'));
 });
 
 console.log(chalk.yellow(`Attempting to listen on ...${serverLocation}`));

@@ -7,7 +7,8 @@
     "react/no-find-dom-node": 0,
     "react/prop-types": [0],
     "no-unused-expressions": ["error", { "allowShortCircuit": true, "allowTernary": true }],
-    "react/forbid-prop-types": [0]
+    "react/forbid-prop-types": [0],
+    "import/extensions": 0,
   },
   "env": {
    "browser": true,

@@ -1,31 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import $ from 'jquery';
 
-import Layout from './components/layout.jsx';
-import Home from './pages/home.jsx';
-import About from './pages/about.jsx';
-import Events from './pages/events.jsx';
+import * as Pages from './pages';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Layout>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/events" components={Events} />
-        </Layout>
+        <Pages.Layout>
+          <Route exact path="/" component={Pages.Home} />
+          <Route path="/about" component={Pages.About} />
+          <Route path="/events" components={Pages.Events} />
+        </Pages.Layout>
       </Switch>
     </BrowserRouter>
   );
 };
 
-const App = () => {
-  return (
-    <Router />
-  );
-};
-
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Router />, document.getElementById('app'));

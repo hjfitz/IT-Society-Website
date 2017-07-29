@@ -1,12 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Navbar, NavItem } from 'react-materialize';
+import { Link } from 'react-router-dom';
 
 const Nav = (props) => {
   return (
     <Navbar className={props.color} brand="The IT Society" right>
-      <NavItem href="get-started.html">Events</NavItem>
-      <NavItem href="components.html">About</NavItem>
+      <NavItem><Link to="/events">Events</Link></NavItem>
+      <NavItem><Link to="/about">About</Link></NavItem>
     </Navbar>
   );
 };

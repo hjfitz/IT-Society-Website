@@ -1,3 +1,29 @@
 * {
   margin: 0;
 }
+
+body {
+  background-image: url('/pub/images/possible-overlay-2-trans.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  background-size:cover;
+}
+
+.main-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.container {
+  flex:1;
+}
+
+.transparent-nav {
+  background-color: rgba(0,0,0,0);
+}
+
+.opening-content {
+  margin-top: 250px;
+}

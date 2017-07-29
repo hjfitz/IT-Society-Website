@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Nav = (props) => {
   return (
-    <Navbar className={props.color} brand="The IT Society" right>
+    <Navbar className={`center ${props.className}`} brand="The IT Society" right fixed>
       <NavItem><Link to="/events">Events</Link></NavItem>
       <NavItem><Link to="/about">About</Link></NavItem>
     </Navbar>

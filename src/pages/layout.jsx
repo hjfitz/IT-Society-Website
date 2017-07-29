@@ -1,16 +1,15 @@
 import React from 'react';
 import * as Partial from '../components/partial';
 
-const color = 'purple darken-4';
 
 const Layout = (props) => {
   return (
-    <div>
-      <Partial.Nav color={color} />
+    <div className="main-container">
+      <Partial.Nav className="transparent-nav" />
       <div className="container">
         {props.children}
       </div>
-      <Partial.Footer color={color} />
+      <Partial.Footer color="blue-grey darken-3" />
     </div>
   );
 };

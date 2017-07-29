@@ -5,9 +5,10 @@ import propTypes from 'prop-types';
 // title is mandatory
 const Card = (props) => {
   const header = <span className="card-title">{props.header}</span>;
+  const cardSize = props.width ? `s${props.width} m${props.width}` : 's12 m6';
   return (
-    <div className="row">
-      <div className="col s12 m6">
+    <div className={`row ${props.className}`}>
+      <div className={`col ${cardSize}`}>
         <div className="card">
           {/* If there's an image, put it, and the header above the content. */}
           {props.image

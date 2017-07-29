@@ -8,18 +8,19 @@
     "start": "node app",
     "dev": "nodemon app",
     "build": "./node_modules/webpack/bin/webpack.js",
+    "postinstall": "./node_modules/webpack/bin/webpack.js",
     "build-dev": "./node_modules/webpack/bin/webpack.js -w"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/itsoc-uop/site.git"
+    "url": "git+https://github.com/hjfitz/IT-Society-Website.git"
   },
   "author": "Harry Fitzgerald <up780461@myport.ac.uk>",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/itsoc-uop/site/issues"
+    "url": "https://github.com/hjfitz/IT-Society-Website/issues"
   },
-  "homepage": "https://github.com/itsoc-uop/site#readme",
+  "homepage": "https://github.com/hjfitz/IT-Society-Website#readme",
   "dependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",

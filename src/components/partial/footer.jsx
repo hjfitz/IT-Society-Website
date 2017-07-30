@@ -13,7 +13,7 @@ const Footer = (props) => {
   const copyleft = (
     <div>
       <span style={copyleftStyle}>&copy; </span>
-      2017 - The IT Society
+      {' 2017 - The IT Society'}
     </div>
   );
 

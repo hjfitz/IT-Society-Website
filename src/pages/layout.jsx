@@ -5,7 +5,7 @@ import * as Partial from '../components/partial';
 const Layout = (props) => {
   return (
     <div className="main-container">
-      <Partial.Nav className="transparent" />
+      <Partial.Nav className="transparent" scrollPos={250} />
       <div className="container">
         {props.children}
       </div>

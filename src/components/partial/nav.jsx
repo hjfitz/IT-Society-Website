@@ -9,8 +9,8 @@ class Nav extends React.Component {
     const nav = document.querySelector('nav');
     window.addEventListener('scroll', () => {
       const scrollPos = document.body.scrollTop;
-      if (scrollPos > 250) {
-        nav.classList = 'center grey lighten-5';
+      if (scrollPos > this.props.scrollPos) {
+        nav.classList = 'center grey lighten-5 blue-grey-text text-darken-4';
       } else {
         nav.classList = 'center transparent';
       }

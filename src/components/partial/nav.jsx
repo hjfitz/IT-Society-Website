@@ -8,12 +8,14 @@ class Nav extends React.Component {
     const nav = document.querySelector('nav');
     const navTexts = document.querySelectorAll('.nav-link');
     const navLogo = document.querySelector('.brand-logo');
+    const navButton = document.querySelector('.button-collapse');
     const textDarkColor = 'blue-grey-text text-darken-4';
 
     window.addEventListener('scroll', () => {
       const scrollPos = document.body.scrollTop;
       if (scrollPos > this.props.scrollPos) {
         nav.classList = 'center grey lighten-5';
+        navButton.classList = `button-collapse ${textDarkColor}`;
         navLogo.classList = `brand-logo center ${textDarkColor}`;
         navTexts.forEach((text) => {
           text.classList = `nav-link ${textDarkColor}`;
@@ -21,6 +23,7 @@ class Nav extends React.Component {
       } else {
         nav.classList = 'center transparent';
         navLogo.classList = 'brand-logo center';
+        navButton.classList = 'button-collapse';
         navTexts.forEach((text) => {
           text.classList = 'nav-link';
         });

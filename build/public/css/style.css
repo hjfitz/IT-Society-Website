@@ -24,6 +24,10 @@ nav {
   transition: 0.33s;
 }
 
+#sidenav-overlay {
+  z-index:0!important;
+}
+
 .opening-content {
   margin-top: 250px;
 }

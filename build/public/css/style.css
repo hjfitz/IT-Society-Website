@@ -20,8 +20,13 @@ body {
   flex:1;
 }
 
-.transparent-nav {
-  background-color: rgba(0,0,0,0);
+nav {
+  transition: 0.33s;
+}
+
+.brand-logo {
+  left:0;
+  right:0;
 }
 
 .opening-content {

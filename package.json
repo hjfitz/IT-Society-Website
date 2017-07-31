@@ -20,7 +20,9 @@
   "bugs": {
     "url": "https://github.com/hjfitz/IT-Society-Website/issues"
   },
-  "engines": "6.11.x",
+  "engines": {
+	  "node": "6.11.x"
+  },
   "homepage": "https://github.com/hjfitz/IT-Society-Website#readme",
   "dependencies": {
     "babel-core": "^6.25.0",

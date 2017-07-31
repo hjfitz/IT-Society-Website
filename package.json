@@ -8,7 +8,7 @@
     "start": "node app",
     "dev": "nodemon app",
     "build": "./node_modules/webpack/bin/webpack.js",
-    "postinstall": "./node_modules/webpack/bin/webpack.js",
+	"postinstall": "webpack -p --config ./webpack.config.js --progress",
     "build-dev": "./node_modules/webpack/bin/webpack.js -w"
   },
   "repository": {
@@ -20,6 +20,7 @@
   "bugs": {
     "url": "https://github.com/hjfitz/IT-Society-Website/issues"
   },
+  "engines": "6.11.x",
   "homepage": "https://github.com/hjfitz/IT-Society-Website#readme",
   "dependencies": {
     "babel-core": "^6.25.0",

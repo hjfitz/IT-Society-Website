@@ -1,7 +1,7 @@
 const Notifier = require('webpack-build-notifier');
 
 const config = {
-  entry: ['babel-polyfill', './src/router.jsx'],
+  entry: ['babel-polyfill', './src/client-components/router.jsx'],
   output: {
     path: `${__dirname}/build/public/js`,
     filename: 'bundle.js',

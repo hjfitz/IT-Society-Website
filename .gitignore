@@ -63,3 +63,6 @@ typings/
 # ignore our builds and source map
 build/public/js/bundle.js
 build/public/js/bundle.js.map
+
+# don't post the config to github
+config.js

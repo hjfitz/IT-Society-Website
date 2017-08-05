@@ -15,11 +15,11 @@ const client = contentful.createClient({
   accessToken: config.accessToken,
 });
 
+console.log(chalk.green(`${prefix}Client successfully created`));
+
 router.get('/fields', (req, res) => {
   const data = [];
-  console.log('/fields get');
-  client.getEntries().then((resp) => {
-    console.log(resp.items);
+  client.getEntries().then(resp => {
     res.json(resp.items);
   });
 });

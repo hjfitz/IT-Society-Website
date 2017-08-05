@@ -6,18 +6,6 @@ class Home extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    console.log('home');
-    const xhr = new XMLHttpRequest();
-    fetch('/api/fields')
-    .then((data) => {
-      return data.json();
-    }).then((data) => {
-      // object rendering goes here!
-      console.log(data);
-    });
-  }
-
   render() {
     return (
       <section>

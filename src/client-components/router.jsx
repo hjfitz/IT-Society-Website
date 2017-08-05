@@ -10,8 +10,8 @@ const Router = () => {
       <Switch>
         <Pages.Layout>
           <Route exact path="/" component={Pages.Home} />
-          <Route path="/about" component={Pages.About} />
-          <Route path="/events" components={Pages.Events} />
+          <Route exact path="/events" component={Pages.Events} />
+          {/* <Route path="/about" component={Pages.About} />*/}
         </Pages.Layout>
       </Switch>
     </BrowserRouter>

@@ -19,7 +19,7 @@ app.use('/api', contentfulAPI);
 // every time the server gets hit, log it nicely.
 app.use('/', (req, res, next) => {
   const method = util.formatMethod(req.method);
-  console.log(`${new Date()} :: ${method} ${req.url}`);
+  console.log(`${chalk.bold(prefix)}${new Date()} :: ${method} ${req.url}`);
   next();
 });
 
@@ -35,4 +35,4 @@ console.log(`${chalk.yellow(prefix)}Attempting to listen on ...${serverLocation}
 
 app.listen(PORT);
 
-console.log(chalk.green(`${prefix}Success! Server running on ${serverLocation}\n`));
+console.log(chalk.green(`${prefix}Success! Server running on ${serverLocation}`));

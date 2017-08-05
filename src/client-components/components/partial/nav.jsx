@@ -17,14 +17,14 @@ class Nav extends React.Component {
         nav.classList = 'center grey lighten-5';
         navButton.classList = `button-collapse ${textDarkColor}`;
         navLogo.classList = `brand-logo center ${textDarkColor}`;
-        navTexts.forEach((text) => {
+        navTexts.forEach(text => {
           text.classList = `nav-link ${textDarkColor}`;
         });
       } else {
         nav.classList = 'center transparent';
         navLogo.classList = 'brand-logo center';
         navButton.classList = 'button-collapse';
-        navTexts.forEach((text) => {
+        navTexts.forEach(text => {
           text.classList = 'nav-link';
         });
       }
@@ -33,9 +33,9 @@ class Nav extends React.Component {
 
   render() {
     const links = [
-      <div>
-        <li id="about"><Link className="nav-link" to="/about">About</Link></li>
-        <li id="events"><Link className="nav-link" to="/events">Events</Link></li>
+      <div key="links">
+        <li key="about"><Link className="nav-link" to="/about">About</Link></li>
+        <li key="events"><Link className="nav-link" to="/events">Events</Link></li>
       </div>,
     ];
     return (

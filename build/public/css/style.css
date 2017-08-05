@@ -31,3 +31,7 @@ nav {
 .opening-content {
   margin-top: 250px;
 }
+
+.footer-copyright>.container {
+  flex:none;
+}

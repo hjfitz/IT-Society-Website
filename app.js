@@ -14,7 +14,7 @@ const pub = `${__dirname}/build/public`;
 const serverLocation = chalk.bold(`localhost:${PORT}`);
 
 // host contentful on the API route
-app.use('/api', contentfulAPI);
+app.use('/api/contentful', contentfulAPI);
 
 // every time the server gets hit, log it nicely.
 app.use('/', (req, res, next) => {

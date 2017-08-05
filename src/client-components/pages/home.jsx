@@ -1,22 +1,49 @@
 import React from 'react';
 import { Card } from '../components/partial';
+import { intToMoney } from '../util';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      events: [],
+    };
+  }
+
+  componentWillMount() {
+    fetch('/api/contentful/fields')
+    .then(data => {
+      return data.json();
+    }).then(data => {
+      this.setState({
+        events: data,
+      });
+    });
+  }
+
+  generateFacebook() {}
+
+  generateEvents() {
+    const events = this.state.events;
+    if (events.length > 0) {
+      return events.map(ev => {
+        return (
+          <div key={ev.sys.id}>
+            <h4>{ev.fields.eventName}</h4>
+            <p className="flow-text">{`${ev.fields.eventType} :: ${intToMoney(ev.fields.eventPrice)}`}</p>
+            <div className="divider" />
+          </div>
+        );
+      });
+    }
+    return (<h3>Loading...</h3>);
   }
 
   render() {
     return (
       <section>
         <Card className="opening-content" width="12">
-          <p>Spicy jalapeno bacon ipsum dolor amet swine alcatra ground round, boudin salami frankfurter ham hock. Kielbasa pastrami pork loin, ground round jowl pork belly chicken shankle drumstick flank picanha doner landjaeger turducken. Sirloin strip steak doner ball tip spare ribs pork loin. Bresaola short ribs cow, doner cupim sirloin shoulder pig chuck t-bone flank bacon. Cow pancetta sausage pork belly short ribs sirloin chicken shankle. Pastrami tenderloin venison, biltong pork belly rump shank turducken bacon ham capicola beef ribs meatloaf ribeye pork loin.</p>
-          <p>Pork chop t-bone boudin salami. Salami short loin spare ribs t-bone meatloaf pork chop jowl shank tail. Burgdoggen fatback hamburger pork chop turducken, jerky sirloin. Boudin salami beef ribs turducken andouille shank fatback tri-tip. Drumstick boudin shoulder, ball tip cow landjaeger turkey beef chuck jerky. Meatball tongue cupim biltong, bacon bresaola fatback frankfurter jerky hamburger leberkas rump beef ribs ribeye.</p>
-          <p>Spicy jalapeno bacon ipsum dolor amet swine alcatra ground round, boudin salami frankfurter ham hock. Kielbasa pastrami pork loin, ground round jowl pork belly chicken shankle drumstick flank picanha doner landjaeger turducken. Sirloin strip steak doner ball tip spare ribs pork loin. Bresaola short ribs cow, doner cupim sirloin shoulder pig chuck t-bone flank bacon. Cow pancetta sausage pork belly short ribs sirloin chicken shankle. Pastrami tenderloin venison, biltong pork belly rump shank turducken bacon ham capicola beef ribs meatloaf ribeye pork loin.</p>
-          <p>Pork chop t-bone boudin salami. Salami short loin spare ribs t-bone meatloaf pork chop jowl shank tail. Burgdoggen fatback hamburger pork chop turducken, jerky sirloin. Boudin salami beef ribs turducken andouille shank fatback tri-tip. Drumstick boudin shoulder, ball tip cow landjaeger turkey beef chuck jerky. Meatball tongue cupim biltong, bacon bresaola fatback frankfurter jerky hamburger leberkas rump beef ribs ribeye.</p>
-          <p>Spicy jalapeno bacon ipsum dolor amet swine alcatra ground round, boudin salami frankfurter ham hock. Kielbasa pastrami pork loin, ground round jowl pork belly chicken shankle drumstick flank picanha doner landjaeger turducken. Sirloin strip steak doner ball tip spare ribs pork loin. Bresaola short ribs cow, doner cupim sirloin shoulder pig chuck t-bone flank bacon. Cow pancetta sausage pork belly short ribs sirloin chicken shankle. Pastrami tenderloin venison, biltong pork belly rump shank turducken bacon ham capicola beef ribs meatloaf ribeye pork loin.</p>
-          <p>Pork chop t-bone boudin salami. Salami short loin spare ribs t-bone meatloaf pork chop jowl shank tail. Burgdoggen fatback hamburger pork chop turducken, jerky sirloin. Boudin salami beef ribs turducken andouille shank fatback tri-tip. Drumstick boudin shoulder, ball tip cow landjaeger turkey beef chuck jerky. Meatball tongue cupim biltong, bacon bresaola fatback frankfurter jerky hamburger leberkas rump beef ribs ribeye.</p>
-
+          {this.generateEvents()}
         </Card>
       </section>
     );

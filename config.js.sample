@@ -1,0 +1,6 @@
+module.exports = {
+  contentful: {
+    space: 'foo',
+    accessToken: 'bar',
+  },
+};

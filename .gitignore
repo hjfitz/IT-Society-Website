@@ -66,3 +66,6 @@ build/public/js/bundle.js.map
 
 # don't post the config to github
 config.js
+
+# why does this keep happening
+package-lock.json

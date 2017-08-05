@@ -1,40 +1,50 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Footer as MaterialFooter } from 'react-materialize';
+import { Link } from 'react-router-dom';
 
 const copyleftStyle = {
   display: 'inline-block',
   transform: 'rotate(180deg)',
 };
 
-const Footer = (props) => {
-  const footerClass = `${props.color} example`;
-
+const Footer = () => {
   const copyleft = (
-    <div>
+    <p>
       <span style={copyleftStyle}>&copy; </span>
       {' 2017 - The IT Society'}
-    </div>
+    </p>
   );
 
   const links = (
     <ul>
-      <li><a className="grey-text text-lighten-3" href="#!">Events</a></li>
-      <li><a className="grey-text text-lighten-3" href="#!">About</a></li>
+      <li><Link className="grey-text text-lighten-3" to="/">Home</Link></li>
+      <li><Link className="grey-text text-lighten-3" to="/events">Events</Link></li>
+      <li><Link className="grey-text text-lighten-3" to="/about">About</Link></li>
     </ul>
   );
 
   return (
-    <MaterialFooter
-      className={footerClass}
-      copyrights={copyleft}
-      links={links}
-    >
-      <h5 className="white-text">The IT Society</h5>
-      <p className="grey-text text-lighten-4">
-        social icons go here
-      </p>
-    </MaterialFooter>
+    <footer className="page-footer blue-grey darken-3">
+      <div className="container">
+        <div className="row">
+          <div className="white-text col l6 s12">
+            <h5>The IT Soceity</h5>
+            <p>Proudly sponsored by <a href="https://www.spectrumit.co.uk/">Spectrum IT</a></p>
+            <p>social icons go here</p>
+          </div>
+          <div className="col l4 offset-l2 s12">
+            <h5 className="white-text">Links</h5>
+            {links}
+          </div>
+        </div>
+      </div>
+      <div className="footer-copyright">
+        <div className="container">
+          {copyleft}
+        </div>
+      </div>
+    </footer>
+
   );
 };
 

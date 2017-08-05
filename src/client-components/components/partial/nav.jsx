@@ -36,6 +36,9 @@ class Nav extends React.Component {
       <div key="links">
         <li key="about"><Link className="nav-link" to="/about">About</Link></li>
         <li key="events"><Link className="nav-link" to="/events">Events</Link></li>
+        <li key="moodle"><a className="nav-link" href="https://google.co.uk">Google</a></li>
+        <li key="google"><a className="nav-link" href="https://moodle.port.ac.uk">Moodle</a></li>
+
       </div>,
     ];
     return (

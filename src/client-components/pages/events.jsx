@@ -1,6 +1,8 @@
 import React from 'react';
+import moment from 'moment';
 
 import { Partial } from '../components';
+import { intToMoney } from '../util';
 
 
 class Events extends React.Component {
@@ -12,7 +14,7 @@ class Events extends React.Component {
   }
 
   componentWillMount() {
-    fetch('/api/fields')
+    fetch('/api/contentful/fields')
     .then(data => {
       return data.json();
     }).then(data => {
@@ -28,9 +30,9 @@ class Events extends React.Component {
       return events.map(ev => {
         return (
           <Partial.Card key={ev.sys.id} header={ev.fields.eventName}>
-            <p className="eventPrice">{ev.fields.eventPrice}</p>
+            <p className="eventPrice">{intToMoney(ev.fields.eventPrice)}</p>
             <p className="eventType">{ev.fields.eventType}</p>
-            <p className="eventStartTime">{ev.fields.startTime}</p>
+            <p className="eventStartTime">{moment(ev.fields.startTime).format('MMMM Do YYYY, hh:mm')}</p>
           </Partial.Card>
         );
       });

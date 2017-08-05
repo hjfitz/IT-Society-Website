@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+// import propTypes from 'prop-types';
 
 // standard materialize card. allows for images and buttons
 // title is mandatory
@@ -30,24 +30,24 @@ const Card = (props) => {
   );
 };
 
-Card.propTypes = {
-  buttons: propTypes.bool,
-  links: propTypes.any,
-  header: propTypes.string.isRequired,
-  children: propTypes.any.isRequied,
-  image: propTypes.bool.isRequired,
-  imageSrc: propTypes.string,
-};
-
-Card.defaultProps = {
-  buttons: false,
-  links: '',
-  cardColor: '',
-  textColor: '',
-
-  imageSrc: '',
-  header: 'Card Header',
-  children: <p>Card content</p>,
-};
+// Card.propTypes = {
+//   buttons: propTypes.bool,
+//   links: propTypes.any,
+//   header: propTypes.string.isRequired,
+//   children: propTypes.any.isRequied,
+//   image: propTypes.bool.isRequired,
+//   imageSrc: propTypes.string,
+// };
+//
+// Card.defaultProps = {
+//   buttons: false,
+//   links: '',
+//   cardColor: '',
+//   textColor: '',
+//
+//   imageSrc: '',
+//   header: 'Card Header',
+//   children: <p>Card content</p>,
+// };
 
 export default Card;

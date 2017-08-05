@@ -34,8 +34,8 @@ class Nav extends React.Component {
   render() {
     const links = [
       <div>
-        <li><Link className="nav-link" to="/about">About</Link></li>
-        <li><Link className="nav-link" to="/events">Events</Link></li>
+        <li id="about"><Link className="nav-link" to="/about">About</Link></li>
+        <li id="events"><Link className="nav-link" to="/events">Events</Link></li>
       </div>,
     ];
     return (

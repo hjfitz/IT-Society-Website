@@ -6,7 +6,7 @@ const chalk = require('chalk');
 const config = require('../../../config').facebook;
 
 const router = express.Router();
-const prefix = chalk.blue.bold('[FACEBOOK]\t');
+const prefix = chalk.blue.bold(' [FACEBOOK]\t');
 const graphURL = 'https://graph.facebook.com/';
 
 const groupID = '148498079028819';

@@ -2,13 +2,15 @@ const express = require('express');
 const chalk = require('chalk');
 const path = require('path');
 
+const prefix = chalk.white.bold(' [SERVER]\t');
+console.log(`${prefix}Initialising server...`);
+
 const util = require('./util');
 
 const contentfulAPI = require('./src/server-components/contentful');
 const facebookAPI = require('./src/server-components/facebook');
 
 const app = express();
-const prefix = chalk.white.bold('[SERVER]\t');
 
 // setup global vars
 const PORT = process.env.PORT || 8080;

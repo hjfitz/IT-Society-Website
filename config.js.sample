@@ -3,4 +3,9 @@ module.exports = {
     space: 'foo',
     accessToken: 'bar',
   },
+  facebook: {
+    id: fbid,
+    secret: fbsecret,
+    accessToken: fbaccessToken,
+  },
 };

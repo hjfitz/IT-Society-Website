@@ -6,13 +6,13 @@ const chalk = require('chalk');
 const config = require('../../../config').facebook;
 
 const router = express.Router();
-const prefix = chalk.blue.bold('[FACEBOOK]');
+const prefix = chalk.blue.bold('[FACEBOOK]\t');
 const graphURL = 'https://graph.facebook.com/';
 
 const groupID = '148498079028819';
 const postsURL = `${graphURL}${groupID}/posts?access_token=${config.accessToken}`;
 
-console.log(`${prefix} Module loaded.`);
+console.log(`${prefix}Module loaded`);
 
 router.get('/posts', (req, res) => {
   fetch(postsURL).then(data => {
@@ -21,3 +21,5 @@ router.get('/posts', (req, res) => {
     res.json(data.data);
   });
 });
+
+module.exports = router;

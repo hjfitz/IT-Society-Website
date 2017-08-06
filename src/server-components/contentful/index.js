@@ -7,8 +7,8 @@ const config = require('../../../config').contentful;
 const router = express.Router();
 const prefix = chalk.yellow.bold('[CONTENTFUL]\t');
 
-console.log(chalk.green(`${prefix}Module loaded.`));
-console.log(`${chalk.yellow(prefix)}${chalk.white('Attempting to create a client using config.js.')}`);
+console.log(chalk.green(`${prefix}Module loaded`));
+console.log(`${chalk.yellow(prefix)}${chalk.white('Attempting to create a client using config.js')}`);
 
 const client = contentful.createClient({
   space: config.space,

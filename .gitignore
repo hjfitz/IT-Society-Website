@@ -24,7 +24,7 @@ coverage
 .grunt
 
 # Bower dependency directory (https://bower.io/)
-bower
+bower_components
 
 # node-waf configuration
 .lock-wscript
@@ -57,15 +57,11 @@ typings/
 # dotenv environment variables file
 .env
 
-# ignore any databases
-*.db
+# ignore any built files
+build/public/js
 
-# ignore our builds and source map
-build/public/js/bundle.js
-build/public/js/bundle.js.map
-
-# don't post the config to github
+# don't put the config online!
 config.js
 
-# why does this keep happening
+# ignore the lock file
 package-lock.json

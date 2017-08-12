@@ -1,9 +1,17 @@
 import marked from 'marked';
 import htmlToReact from 'html-to-react';
 
+const parser = new htmlToReact.Parser();
+
 const markdownToReact = md => {
-  const parsedMarkdown = marked(md);
-  return htmlToReact(parsedMarkdown);
+  console.log(md);
+  if (md !== undefined) {
+    const parsedMarkdown = marked(md);
+    console.log(parsedMarkdown);
+    return parser.parse(parsedMarkdown);
+  }
+  console.warn('undefined passed to markdownToReact');
+  return 'a';
 };
 
 const intToMoney = num => {

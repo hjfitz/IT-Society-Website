@@ -3,12 +3,15 @@ const chalk = require('chalk');
 const express = require('express');
 
 const config = require('../../../config').contentful;
+const util = require('../util');
 
 const router = express.Router();
 const prefix = chalk.yellow.bold(' [CONTENTFUL]\t');
 
 console.log(chalk.green(`${prefix}Module loaded`));
 console.log(`${prefix}Attempting to create a client using config.js`);
+
+util.checkConfig(prefix, ['space', 'accessToken'], 'contentful');
 
 const client = contentful.createClient({
   space: config.space,

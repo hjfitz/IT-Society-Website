@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 import { Partial } from '../components';
-import { intToMoney } from '../util';
+import { markdownToReact } from '../util';
 
 
 class Events extends React.Component {
@@ -24,23 +24,29 @@ class Events extends React.Component {
     });
   }
 
+
   generateEvents() {
     if (this.state.events !== 'unpopulated') {
       const events = this.state.events;
+      console.log(Partial);
       return events.map(ev => {
         return (
-          <Partial.Card key={ev.sys.id} header={ev.fields.eventName}>
-            <p className="eventPrice">{intToMoney(ev.fields.eventPrice)}</p>
-            <p className="eventType">{ev.fields.eventType}</p>
-            <p className="eventStartTime">{moment(ev.fields.startTime).format('MMMM Do YYYY, hh:mm')}</p>
-          </Partial.Card>
+          <Partial.Evnt
+            key={ev.sys.id}
+            eventName={ev.fields.eventName}
+            eventLength={ev.fields.startTime}
+            eventDate={moment(ev.fields.startTime).format('D')}
+            price={ev.fields.eventPrice}
+            type={ev.fields.eventType}
+            description={markdownToReact(ev.fields.additionalDetails)}
+
+          />
+
         );
       });
     }
     return (
-      <Partial.Card header="Loading">
-        <p>Loading events...</p>
-      </Partial.Card>
+      <p>Loading events...</p>
     );
   }
 
@@ -48,7 +54,9 @@ class Events extends React.Component {
   render() {
     return (
       <section>
-        {this.generateEvents()}
+        <Partial.Card className="opening-content" width="12">
+          {this.generateEvents()}
+        </Partial.Card>
       </section>
     );
   }

@@ -41,7 +41,7 @@ class Home extends React.Component {
     return (
       <section>
         <Card className="opening-content" width="12">
-          {this.generateEvents()}
+          <p>facebook, twitter and events to appear here</p>
         </Card>
       </section>
     );

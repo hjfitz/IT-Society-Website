@@ -2,8 +2,8 @@ const contentful = require('contentful');
 const chalk = require('chalk');
 const express = require('express');
 
-const config = require('../../../config').contentful;
-const util = require('../util');
+// const config = require('../../../config').contentful;
+// const util = require('../util');
 
 const router = express.Router();
 const prefix = chalk.yellow.bold(' [CONTENTFUL]\t');
@@ -11,11 +11,11 @@ const prefix = chalk.yellow.bold(' [CONTENTFUL]\t');
 console.log(chalk.green(`${prefix}Module loaded`));
 console.log(`${prefix}Attempting to create a client using config.js`);
 
-util.checkConfig(prefix, ['space', 'accessToken'], 'contentful');
+// util.checkConfig(prefix, ['space', 'accessToken'], 'contentful');
 
 const client = contentful.createClient({
-  space: config.space,
-  accessToken: config.accessToken,
+  space: process.env.CONTENTFUL_SPACE,
+  accessToken: process.env.CONTENTFUL_ACCESS,
 });
 
 console.log(chalk.green(`${prefix}Client successfully created`));

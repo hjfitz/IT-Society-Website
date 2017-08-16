@@ -55,6 +55,8 @@ nav {
 .event-left-date>span {
   display: inline-block;
   width: 100%;
+  min-width: 90%;
+  max-width: 90%;
 }
 
 .event-description {

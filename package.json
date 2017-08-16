@@ -8,7 +8,7 @@
     "start": "node app",
     "dev": "nodemon app",
     "build": "./node_modules/webpack/bin/webpack.js",
-    "postinstall": "webpack -p --config ./webpack.config.js --progress",
+	"postinstall": "webpack",
     "build-dev": "./node_modules/webpack/bin/webpack.js -w"
   },
   "repository": {

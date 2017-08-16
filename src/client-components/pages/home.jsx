@@ -21,8 +21,6 @@ class Home extends React.Component {
     });
   }
 
-  generateFacebook() {}
-
   generateEvents() {
     const events = this.state.events;
     if (events.length > 0) {

@@ -35,6 +35,8 @@
     "express": "^4.15.3",
     "html-to-react": "^1.2.11",
     "jquery": "^3.2.1",
+    "jsdoc": "^3.5.4",
+    "jsdoc-webpack-plugin": "0.0.2",
     "marked": "^0.3.6",
     "materialize-css": "^0.99.0",
     "moment": "^2.18.1",
@@ -45,6 +47,7 @@
     "react-materialize": "^1.0.4",
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
+    "shelljs": "^0.7.8",
     "source-map": "^0.5.6",
     "webpack": "^3.2.0",
     "webpack-build-notifier": "^0.1.16"

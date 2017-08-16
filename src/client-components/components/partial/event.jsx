@@ -1,14 +1,30 @@
 import React from 'react';
+import moment from 'moment';
+
 import { intToMoney } from '../../util';
 
+
+/**
+ * Statelett evnt element
+ * @param {Object} props Object properties
+ */
 const Evnt = props => {
+  const formatDate = date => {
+    return (
+      <div className="event-left-date">
+        <span className="event-date-item">{moment(date).format('MMMM Do YYYY')}</span>
+        <span className="event-date-item">{moment(date).format('dddd')}</span>
+        <span className="event-date-item">{moment(date).format('h:mm a')}</span>
+      </div>
+    );
+  };
+
   return (
     <div className="event">
       <div className="event-left">
-        <header>{props.eventName}</header>
-        <div className="event-left-time">{props.eventLength}</div>
+        <header className="truncate">{props.eventName}</header>
         <div className="event-left-date-cost">
-          <span className="event-left-date">{props.eventDate}</span>
+          {formatDate(props.eventLength)}
           <span className="event-left-cost">{intToMoney(props.price)}</span>
         </div>
       </div>

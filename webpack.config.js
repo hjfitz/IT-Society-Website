@@ -1,4 +1,5 @@
 const Notifier = require('webpack-build-notifier');
+const JSDocify = require('jsdoc-webpack-plugin');
 
 const config = {
   entry: ['babel-polyfill', './src/client-components/router.jsx'],
@@ -16,6 +17,9 @@ const config = {
   },
   plugins: [
     new Notifier({ title: 'IT Soc Website' }),
+//    new JSDocify({
+//     conf: './jsdoc.conf',
+//    }),
   ],
 };
 

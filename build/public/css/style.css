@@ -35,3 +35,53 @@ nav {
 .footer-copyright>.container {
   flex:none;
 }
+
+.event {
+  display:flex;
+  margin-bottom: 5rem;
+}
+
+.event-left {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  border-right: 1px solid grey;
+  justify-content: center;
+  margin-right:3px;
+  max-width: 150px;
+  min-width: 150px;
+}
+
+.event-left-date>span {
+  display: inline-block;
+  width: 100%;
+}
+
+.event-description {
+  padding-left: 3%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+  .event {
+    flex-direction: column;
+  }
+
+  .event-left {
+    margin: 0 auto;
+    min-width: 90%;
+    border-right: 0px;
+    border-bottom: 1px solid grey;
+  }
+
+  .event-left-date>span {
+    display: inline;
+    width: inherit;
+  }
+
+  .event-date-item:not(:first-child):before {
+    content: '|';
+    margin: 0 10px;
+  }
+
+}

@@ -14,8 +14,9 @@ class Events extends React.Component {
   }
 
   componentWillMount() {
-    fetch('/api/contentful/fields')
+    fetch('/api/contentful/events')
     .then(data => {
+      console.log(data);
       return data.json();
     }).then(data => {
       this.setState({

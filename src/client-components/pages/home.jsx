@@ -11,7 +11,7 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
-    fetch('/api/contentful/fields')
+    fetch('/api/contentful/events')
     .then(data => {
       return data.json();
     }).then(data => {

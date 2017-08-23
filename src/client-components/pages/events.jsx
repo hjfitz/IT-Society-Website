@@ -16,7 +16,6 @@ class Events extends React.Component {
   componentWillMount() {
     fetch('/api/contentful/events')
     .then(data => {
-      console.log(data);
       return data.json();
     }).then(data => {
       this.setState({
@@ -29,7 +28,6 @@ class Events extends React.Component {
   generateEvents() {
     if (this.state.events !== 'unpopulated') {
       const events = this.state.events;
-      console.log(Partial);
       return events.map(ev => {
         return (
           <Partial.Evnt

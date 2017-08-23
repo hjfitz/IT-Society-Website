@@ -3,6 +3,7 @@ import Footer from './footer.jsx';
 import Nav from './nav.jsx';
 import Slider from './slider-card.jsx';
 import Evnt from './event.jsx';
+import AvatarCard from './avatarCard.jsx';
 
 module.exports = {
   Card,
@@ -10,4 +11,5 @@ module.exports = {
   Nav,
   Slider,
   Evnt,
+  AvatarCard,
 };

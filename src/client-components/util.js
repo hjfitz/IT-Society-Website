@@ -3,15 +3,19 @@ import htmlToReact from 'html-to-react';
 
 const parser = new htmlToReact.Parser();
 
+/**
+ * Used so that the response from contentful - in md
+ * can be changed in to HTML
+ * @param  {String} md Markdown string
+ * @return {ReactDOM}  React Element with parsed md
+ */
 const markdownToReact = md => {
-  console.log(md);
   if (md !== undefined) {
     const parsedMarkdown = marked(md);
-    console.log(parsedMarkdown);
     return parser.parse(parsedMarkdown);
   }
   console.warn('undefined passed to markdownToReact');
-  return 'a';
+  return 'error';
 };
 
 const intToMoney = num => {

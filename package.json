@@ -8,7 +8,7 @@
     "start": "node app",
     "dev": "nodemon app",
     "build": "./node_modules/webpack/bin/webpack.js",
-	"postinstall": "webpack",
+    "postinstall": "webpack",
     "build-dev": "./node_modules/webpack/bin/webpack.js -w"
   },
   "repository": {
@@ -38,6 +38,7 @@
     "jsdoc": "^3.5.4",
     "jsdoc-webpack-plugin": "0.0.2",
     "marked": "^0.3.6",
+    "material-ui": "next",
     "materialize-css": "^0.99.0",
     "moment": "^2.18.1",
     "node-fetch": "^1.7.1",

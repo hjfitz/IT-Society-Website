@@ -6,12 +6,12 @@ import * as Pages from './pages';
 
 const Router = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter onUpdate={() => { return window.scrollTo(0, 0); }}>
       <Switch>
         <Pages.Layout>
           <Route exact path="/" component={Pages.Home} />
           <Route exact path="/events" component={Pages.Events} />
-          {/* <Route path="/about" component={Pages.About} />*/}
+          <Route exact path="/about" component={Pages.About} />
         </Pages.Layout>
       </Switch>
     </BrowserRouter>

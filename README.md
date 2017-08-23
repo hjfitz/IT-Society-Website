@@ -11,13 +11,22 @@ Utilises React (with Semantic). Written in ES6, but transpiled, with Webpack and
 ## Setup
 1. Clone the project
 
-`git clone https://github.com/itsoc-uop/site.git`
+`git clone https://github.com/hjfitz/itsoc-site.git`
 2. Install all dependencies
 
-`npm install`
+`yarn install`
 3. Build the software
 
-`npm run build`
+`yarn run build`
 4. Serve it!
 
-`npm start`
+`heroku local`
+
+### Note
+If you're developing on linux (RHEL/Debian based), you may need to run the following:
+
+```bash
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
+
+This is because by default, Linux is limited to the number of files that can be watched. [Source.](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers)

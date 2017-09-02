@@ -49,8 +49,9 @@ contentfulApi.get('/committee/:year', async (req, res) => {
 
 contentfulApi.get('/events', async (req, res) => {
   const entries = await client.getEntries();
-  const events = res.json(util.getByType('event', entries.items));
+  const events = util.getByType('event', entries.items);
   print(`Returning ${events.length} events @ /api/contentful/events in contentful.index.js`);
+  res.json(events);
 });
 
 

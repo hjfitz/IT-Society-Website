@@ -2,7 +2,16 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+
+// TODO: stick the items we want to compare in the state. We can update on navigation change.
+// check this with router onUpdate
 class Nav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pageContent: '',
+    };
+  }
 
   componentDidMount() {
     this.updateNavColor();
@@ -58,7 +67,11 @@ class Nav extends React.Component {
       <div className="navbar-fixed">
         <nav className="transparent">
           <div className="nav-wrapper">
-            <Link to="/" className={`center brand-logo nav-text ${this.props.className}`}>The IT Society</Link>
+            <Link
+              to="/"
+              className={`center brand-logo nav-text ${this.props.className}`}
+              onClick={() => { this.updateNavColor(); }}
+            >The IT Society</Link>
             <a
               href="#"
               data-activates="mobile-demo"

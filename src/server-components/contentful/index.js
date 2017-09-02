@@ -6,56 +6,51 @@ const util = require('./util.js');
 
 
 const contentfulApi = express.Router();
-const prefix = chalk.yellow.bold(' [CONTENTFUL]\t');
+const prefix = chalk.yellow.bold('[CONTENTFUL]');
+const print = msg => require('../../../util').print(prefix, msg);
 
-console.log(chalk.green(`${prefix}Module loaded`));
-console.log(`${prefix}Attempting to create a client using config.js`);
+print(chalk.green('Module loaded.'));
+print('Attempting to create client using .env');
 
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE,
   accessToken: process.env.CONTENTFUL_ACCESS,
 });
 
-console.log(chalk.green(`${prefix}Client successfully created`));
+print(chalk.green('Client successfully created'));
 
-contentfulApi.get('/all', (req, res) => {
-  client.getEntries().then(resp => {
-    res.json(resp.items);
-  });
+contentfulApi.get('/all', async (req, res) => {
+  const entries = await getEntries();
+  print(`Returning ${entries.items.length} entries @ /api/contentful/all in conentful/index.js`);
+  res.json(entries.items);
 });
 
 /**
  * gets all committeeMembers, regardless of year
  */
-contentfulApi.get('/committeeMembers', (req, res) => {
-  client.getEntries().then(resp => {
-    res.json(util.getByType('committeeMember', resp.items));
-  });
+contentfulApi.get('/committeeMembers', async (req, res) => {
+  const entries = await client.getEntries();
+  print('Returning all Committee Members @ /api/contentful/committeeMembers in contentful/index.js');
+  const members = util.getByType('committeeMember', entries.items);
 });
 
 /**
  * returns all committee members of a specific year
  */
-contentfulApi.get('/committee/:year', (req, res) => {
+contentfulApi.get('/committee/:year', async (req, res) => {
   const year = req.params.year;
-  client.getEntries().then(resp => {
-    // get the committee models
-    return util.getByType('committee', resp.items);
-  }).then(committee => {
-    // filter the committee by year
-    return committee.filter(specificCommittee => {
-      return specificCommittee.fields.committeeYear === year;
-    });
-  }).then(specificCommittee => {
-    res.json(specificCommittee);
-  });
+  const entries = await client.getEntries();
+  const committee = util.getByType('committee', entries.items);
+  const specificYear = committee.filter(specificCommittee => specificCommittee.fields.committeeYear === year);
+  print(`Returning Committee Members of year ${year} @ /api/contentful/committee/:year in contentful/index.js`);
+  res.json(specificYear);
 });
 
 
-contentfulApi.get('/events', (req, res) => {
-  client.getEntries().then(resp => {
-    res.json(util.getByType('event', resp.items));
-  });
+contentfulApi.get('/events', async (req, res) => {
+  const entries = await client.getEntries();
+  const events = res.json(util.getByType('event', entries.items));
+  print(`Returning ${events.length} events @ /api/contentful/events in contentful.index.js`);
 });
 
 

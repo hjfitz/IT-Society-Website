@@ -2,10 +2,13 @@ const express = require('express');
 const chalk = require('chalk');
 const path = require('path');
 
-const prefix = chalk.white.bold(' [SERVER]\t');
-console.log(`${prefix}Initialising server...`);
-
 const util = require('./util');
+
+const prefix = chalk.white.bold('[SERVER]');
+const print = msg => util.print(prefix, msg);
+print('Initialising...');
+
+util.checkEnv();
 
 const contentfulAPI = require('./src/server-components/contentful');
 const facebookAPI = require('./src/server-components/facebook');
@@ -24,7 +27,7 @@ app.use('/api/facebook', facebookAPI);
 // every time the server gets hit, log it nicely.
 app.use('/', (req, res, next) => {
   const method = util.formatMethod(req.method);
-  console.log(`${chalk.bold(prefix)}${new Date()} :: ${method} ${req.url}`);
+  print(`${new Date()} :: ${method} ${req.url}`);
   next();
 });
 
@@ -37,8 +40,8 @@ app.use('/', (req, res) => {
   res.sendFile(path.join(__dirname, '/build/public/index.html'));
 });
 
-console.log(`${chalk.yellow(prefix)}Attempting to listen on ${serverLocation}`);
+print(`Attempting to listen on ${serverLocation}`);
 
 app.listen(PORT);
 
-console.log(chalk.green(`${prefix}Success! Server running on ${serverLocation}`));
+print(chalk.green(`Success! Server running on ${serverLocation}`));

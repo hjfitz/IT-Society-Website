@@ -2,31 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const updateNav = () => {
-  const nav = document.querySelector('nav');
-  const navTexts = document.querySelectorAll('.nav-link');
-  const navLogo = document.querySelector('.brand-logo');
-  const navButton = document.querySelector('.button-collapse');
-  const textDarkColor = 'blue-grey-text text-darken-4';
-  const navBot = nav.getBoundingClientRect().bottom;
-  const content = document.querySelector('.opening-content');
-  const scrollPos = content.getBoundingClientRect().top;
-  if (scrollPos <= navBot) {
-    nav.classList = 'center grey lighten-5';
-    navButton.classList = `button-collapse ${textDarkColor}`;
-    navLogo.classList = `brand-logo center ${textDarkColor}`;
-    navTexts.forEach(text => {
-      text.classList = `nav-link ${textDarkColor}`;
-    });
-  } else {
-    nav.classList = 'center transparent';
-    navLogo.classList = 'brand-logo center';
-    navButton.classList = 'button-collapse';
-    navTexts.forEach(text => {
-      text.classList = 'nav-link';
-    });
-  }
-}
+import { updateNav } from '../../util';
 
 class Nav extends React.Component {
   constructor(props) {
@@ -36,26 +12,24 @@ class Nav extends React.Component {
     };
   }
 
+
+
   componentDidMount() {
-    this.updateNavColor();
+    window.addEventListener('scroll', updateNav);
   }
 
-  updateNavColor() {
-    /**
-     * makes the nav dark, if we're below a certain threshold
-     */
-    window.addEventListener('scroll', () => {
-      updateNav();
-    });
+  componentWillUnmount() {
+    window.removeEventListener('scroll', updateNav);
   }
+
 
   render() {
     const links = [
       <div key="links">
-        <li onClick={() => { updateNav(); }} key="about"><Link className="nav-link" to="/about">About</Link></li>
-        <li onClick={() => { updateNav(); }} key="events"><Link className="nav-link" to="/events">Events</Link></li>
-        <li onClick={() => { updateNav(); }} key="moodle"><a className="nav-link" href="https://google.co.uk">Google</a></li>
-        <li onClick={() => { updateNav(); }} key="google"><a className="nav-link" href="https://moodle.port.ac.uk">Moodle</a></li>
+        <li key="about"><Link className="nav-link" to="/about">About</Link></li>
+        <li key="events"><Link className="nav-link" to="/events">Events</Link></li>
+        <li key="moodle"><a className="nav-link" href="https://google.co.uk">Google</a></li>
+        <li key="google"><a className="nav-link" href="https://moodle.port.ac.uk">Moodle</a></li>
 
       </div>,
     ];
@@ -66,7 +40,6 @@ class Nav extends React.Component {
             <Link
               to="/"
               className={`center brand-logo nav-text ${this.props.className}`}
-              onClick={() => { updateNav(); }}
             >The IT Society</Link>
             <a
               href="#"

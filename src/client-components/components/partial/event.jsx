@@ -29,8 +29,8 @@ const Evnt = props => {
         </div>
       </div>
       <div className="event-description">
-        {props.description.map(desc => {
-          return <p>{desc}</p>;
+        {props.description.map((desc, idx) => {
+          return <span key={idx} >{desc}</span>;
         })}
       </div>
     </div>

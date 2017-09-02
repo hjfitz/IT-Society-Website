@@ -11,25 +11,23 @@ class About extends React.Component {
       committeeMembers: (<CircularProgress color="accent" size={50} />),
     };
   }
-  componentWillMount() {
-    fetch('/api/contentful/committee/2017').then(res => {
-      return res.json();
-    }).then(json => {
-      return json[0].fields.committeeMembers;
-    }).then(committee => {
-      this.setState({
-        committeeMembers: committee.map(member => {
-          return (
-            <AvatarCard
-              key={member.sys.id}
-              imgSrc={`https:${member.fields.memberPicture.fields.file.url}`}
-              email={member.fields.memberEmailAddress}
-              name={member.fields.memberName}
-              role={member.fields.memberRole}
-            />
-          );
-        }),
-      });
+
+  async componentWillMount() {
+    const rawCommittee = await fetch('/api/contentful/committee/2017');
+    const committee = await rawCommittee.json();
+    const rawMembers = committee[0].fields.committeeMembers;
+    this.setState({
+      committeeMembers: rawMembers.map(member => {
+        return (
+          <AvatarCard
+            key={member.sys.id}
+            imgSrc={`https:${member.fields.memberPicture.fields.file.url}`}
+            email={member.fields.memberEmailAddress}
+            name={member.fields.memberName}
+            role={member.fields.memberRole}
+          />
+        );
+      }),
     });
   }
 
@@ -41,7 +39,7 @@ class About extends React.Component {
         align="center"
         justify="center"
         className="opening-content"
-        style={{ marginTop: '100px;' }}
+        style={{ marginTop: '100px', marginBottom: '20px' }}
       >
         {this.state.committeeMembers}
       </Grid>

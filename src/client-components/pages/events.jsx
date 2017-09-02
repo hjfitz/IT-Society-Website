@@ -13,15 +13,10 @@ class Events extends React.Component {
     };
   }
 
-  componentWillMount() {
-    fetch('/api/contentful/events')
-    .then(data => {
-      return data.json();
-    }).then(data => {
-      this.setState({
-        events: data,
-      });
-    });
+  async componentWillMount() {
+    const rawEvents = await fetch('/api/contentful/events');
+    const events = await rawEvents.json();
+    this.setState({ events });
   }
 
 
@@ -38,9 +33,7 @@ class Events extends React.Component {
             price={ev.fields.eventPrice}
             type={ev.fields.eventType}
             description={markdownToReact(ev.fields.additionalDetails)}
-
           />
-
         );
       });
     }

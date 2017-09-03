@@ -1,8 +1,6 @@
 import marked from 'marked';
 import htmlToReact from 'html-to-react';
 
-const parser = new htmlToReact.Parser();
-
 /**
  * Used so that the response from contentful - in md
  * can be changed in to HTML
@@ -12,6 +10,7 @@ const parser = new htmlToReact.Parser();
 const markdownToReact = md => {
   if (md !== undefined) {
     const parsedMarkdown = marked(md);
+    const parser = new htmlToReact.Parser();
     return parser.parse(parsedMarkdown);
   }
   console.warn('undefined passed to markdownToReact');
@@ -25,38 +24,52 @@ const markdownToReact = md => {
  */
 const intToMoney = num => {
   const cost = parseInt(num, 10);
-  if (cost === 0) {
-    return 'Free!';
-  }
-  return `£${cost.toFixed(2)}`;
+  return cost === 0 ? 'Free!' : `£${cost.toFixed(2)}`;
 };
 
+/**
+ * Given a HTMLElement, add any number of classes to it
+ * @param {HTMLElement} obj DOM elem to add class to
+ * @param {Array<String>} classes Classes to add to obj
+ */
+const addClasses = (obj, ...classes) => {
+  classes.forEach(cls => obj.classList.add(cls));
+}
 
+/**
+ * Given a HTMLElement, remove any given number of classes from it
+ * @param {HTMLElement} obj Element to remove classes from
+ * @param {Array<String>} classes Classes to remove from obj
+ */
+const removeClasses = (obj, ...classes) => {
+  classes.forEach(cls => obj.classList.remove(cls));
+}
+
+/**
+ * Change the nav color based on whether it overlaps the main 'opening-content' object
+ */
 const updateNav = () => {
-  
+  // get the items we want to change
   const navTexts = document.querySelectorAll('.nav-link');
   const navLogo = document.querySelector('.brand-logo');
   const navButton = document.querySelector('.button-collapse');
   const textDarkColor = 'blue-grey-text text-darken-4';
 
-  const nav = document.querySelector('nav');
+  // put those in to an Array
+  const navItems = [navButton, navLogo, ...navTexts];
+
+  // get the points on the DOM to compare
+  const nav = document.querySelector('nav')
   const navBot = nav.getBoundingClientRect().bottom;
-  const content = document.querySelector('.opening-content');
-  const scrollPos = content.getBoundingClientRect().top;
+  const scrollPos = document.querySelector('.opening-content').getBoundingClientRect().top;
+
+  // if they're overlapping, darken them
   if (scrollPos <= navBot) {
     nav.classList = 'center grey lighten-5';
-    navButton.classList = `button-collapse ${textDarkColor}`;
-    navLogo.classList = `brand-logo center ${textDarkColor}`;
-    navTexts.forEach(text => {
-      text.classList = `nav-link ${textDarkColor}`;
-    });
+    navItems.map(navItem => addClasses(navItem, 'blue-grey-text', 'text-darken-4'));
   } else {
     nav.classList = 'center transparent';
-    navLogo.classList = 'brand-logo center';
-    navButton.classList = 'button-collapse';
-    navTexts.forEach(text => {
-      text.classList = 'nav-link';
-    });
+    navItems.map(navItem => removeClasses(navItem, 'blue-grey-text', 'text-darken-4'));
   }
 }
 

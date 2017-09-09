@@ -20,7 +20,7 @@ const client = contentful.createClient({
 print(chalk.green('Client successfully created'));
 
 contentfulApi.get('/all', async (req, res) => {
-  const entries = await getEntries();
+  const entries = await client.getEntries();
   print(`Returning ${entries.items.length} entries @ /api/contentful/all in conentful/index.js`);
   res.json(entries.items);
 });
@@ -53,6 +53,5 @@ contentfulApi.get('/events', async (req, res) => {
   print(`Returning ${events.length} events @ /api/contentful/events in contentful.index.js`);
   res.json(events);
 });
-
 
 module.exports = contentfulApi;

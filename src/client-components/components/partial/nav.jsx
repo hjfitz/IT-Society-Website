@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { updateNav } from '../../util';
+import { updateNav } from '../util';
 
 class Nav extends React.Component {
   constructor(props) {
@@ -11,7 +11,6 @@ class Nav extends React.Component {
       pageContent: '',
     };
   }
-
 
 
   componentDidMount() {

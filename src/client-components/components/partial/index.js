@@ -4,6 +4,7 @@ import Nav from './nav.jsx';
 import Slider from './slider-card.jsx';
 import Evnt from './event.jsx';
 import AvatarCard from './avatarCard.jsx';
+import Loading from './loading.jsx';
 
 module.exports = {
   Card,
@@ -12,4 +13,5 @@ module.exports = {
   Slider,
   Evnt,
   AvatarCard,
+  Loading,
 };

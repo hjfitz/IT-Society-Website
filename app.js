@@ -1,6 +1,7 @@
 const express = require('express');
 const chalk = require('chalk');
 const path = require('path');
+const favicon = require('serve-favicon');
 
 const util = require('./util');
 
@@ -19,6 +20,9 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const pub = `${__dirname}/build/public`;
 const serverLocation = chalk.bold(`localhost:${PORT}`);
+
+// send the favicon
+app.use(favicon(`${__dirname}/build/public/images/favicon.ico`));
 
 // host contentful on the API route
 app.use('/api/contentful', contentfulAPI);

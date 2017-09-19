@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-import { intToMoney } from '../../util';
+import { intToMoney } from '../util';
 
 
 /**
@@ -9,15 +9,13 @@ import { intToMoney } from '../../util';
  * @param {Object} props Object properties
  */
 const Evnt = props => {
-  const formatDate = date => {
-    return (
-      <div className="event-left-date">
-        <span className="event-date-item">{moment(date).format('MMMM Do YYYY')}</span>
-        <span className="event-date-item">{moment(date).format('dddd')}</span>
-        <span className="event-date-item">{moment(date).format('h:mm a')}</span>
-      </div>
+  const formatDate = date => (
+    <div className="event-left-date">
+      <span className="event-date-item">{moment(date).format('MMMM Do YYYY')}</span>
+      <span className="event-date-item">{moment(date).format('dddd')}</span>
+      <span className="event-date-item">{moment(date).format('h:mm a')}</span>
+    </div>
     );
-  };
 
   return (
     <div className="event">
@@ -29,9 +27,7 @@ const Evnt = props => {
         </div>
       </div>
       <div className="event-description">
-        {props.description.map((desc, idx) => {
-          return <span key={idx} >{desc}</span>;
-        })}
+        {props.description.map((desc, idx) => <span key={idx} >{desc}</span>)}
       </div>
     </div>
   );

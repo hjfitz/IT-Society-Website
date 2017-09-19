@@ -21,7 +21,7 @@ print(chalk.green('Client successfully created'));
 
 contentfulApi.get('/all', async (req, res) => {
   const entries = await client.getEntries();
-  print(`Returning ${entries.items.length} entries @ /api/contentful/all in conentful/index.js`);
+  print('Returning entries @ /api/contentful/all in conentful/index.js');
   res.json(entries.items);
 });
 
@@ -32,6 +32,7 @@ contentfulApi.get('/committeeMembers', async (req, res) => {
   const entries = await client.getEntries();
   print('Returning all Committee Members @ /api/contentful/committeeMembers in contentful/index.js');
   const members = util.getByType('committeeMember', entries.items);
+  res.json(members);
 });
 
 /**
@@ -50,7 +51,7 @@ contentfulApi.get('/committee/:year', async (req, res) => {
 contentfulApi.get('/events', async (req, res) => {
   const entries = await client.getEntries();
   const events = util.getByType('event', entries.items);
-  print(`Returning ${events.length} events @ /api/contentful/events in contentful.index.js`);
+  print('Returning events @ /api/contentful/events in contentful.index.js');
   res.json(events);
 });
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as Partial from '../components/partial';
+import * as Partial from '../partial';
 import { updateNav } from '../util.js';
 
 class Layout extends React.Component {
@@ -30,6 +30,6 @@ class Layout extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Layout;

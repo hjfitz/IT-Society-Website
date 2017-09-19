@@ -12,12 +12,11 @@ const print = msg => require('../../../util').print(prefix, msg);
 const groupID = '148498079028819';
 
 
-
 router.get('/posts', async (req, res) => {
   const postsURL = `${graphURL}${groupID}${access}`;
   const rawPosts = await fetch(postsURL);
   const posts = await rawPosts.json();
-  print(`Returning ${posts.data.length} posts @ /api/facebook/posts`);
+  print('Returning posts @ /api/facebook/posts');
   res.json(posts.data);
 });
 
@@ -28,6 +27,6 @@ router.get('/post/:id', async (req, res) => {
   const rawPost = await fetch(postURL);
   const post = await rawPost.json();
   res.json(post);
-})
+});
 
 module.exports = router;

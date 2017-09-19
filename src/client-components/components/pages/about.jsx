@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from 'material-ui/Grid';
 import { CircularProgress } from 'material-ui/Progress';
 
-import { AvatarCard } from '../components/partial';
+import { AvatarCard } from '../partial';
 
 class About extends React.Component {
   constructor(props) {
@@ -17,8 +17,7 @@ class About extends React.Component {
     const committee = await rawCommittee.json();
     const rawMembers = committee[0].fields.committeeMembers;
     this.setState({
-      committeeMembers: rawMembers.map(member => {
-        return (
+      committeeMembers: rawMembers.map(member => (
           <AvatarCard
             key={member.sys.id}
             imgSrc={`https:${member.fields.memberPicture.fields.file.url}`}
@@ -26,8 +25,7 @@ class About extends React.Component {
             name={member.fields.memberName}
             role={member.fields.memberRole}
           />
-        );
-      }),
+        )),
     });
   }
 

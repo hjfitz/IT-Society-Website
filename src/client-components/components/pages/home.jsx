@@ -1,18 +1,26 @@
 import React from 'react';
-import { CircularProgress } from 'material-ui/Progress';
 
-import { Card } from '../components/partial';
+import { Card, Loading } from '../partial';
 
 class Home extends React.Component {
+  static async populatePage() {
+    const rawPosts = await fetch('/api/facebook/posts');
+    const facebookPosts = await rawPosts.json();
+    const rawEvents = await fetch('/api/contentful/events');
+    const events = await rawEvents.json();
+
+    console.log(facebookPosts);
+    console.log(events);
+    // TODO: render these in react for the homepage
+  }
+
   constructor(props) {
     super(props);
-    this.state = {
-    children: (<div style={{ width: '50px', margin: '1% auto'}}><CircularProgress color="accent" size={50} /></div>),
-    };
+    this.state = { children: <Loading /> };
   }
 
   componentWillMount() {
-    this.populatePage();
+    Home.populatePage();
   }
 
   componentDidMount() {
@@ -24,19 +32,6 @@ class Home extends React.Component {
         window.location = `https://www.google.co.uk/search?q=${encQuery}`;
       }
     });
-  }
-
-
-
-  async populatePage() {
-    const rawFacebookPosts = await fetch('/api/facebook/posts');
-    const facebookPosts = await rawFacebookPosts.json();
-    const rawEvents = await fetch('/api/contentful/events');
-    const events = await rawEvents.json();
-
-    console.log(facebookPosts);
-    console.log(events);
-    // TODO: render these in react for the homepage
   }
 
   render() {

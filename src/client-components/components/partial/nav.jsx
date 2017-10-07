@@ -12,8 +12,6 @@ class Nav extends React.Component {
     };
   }
 
-
-
   componentDidMount() {
     window.addEventListener('scroll', updateNav);
   }
@@ -22,15 +20,29 @@ class Nav extends React.Component {
     window.removeEventListener('scroll', updateNav);
   }
 
-
   render() {
     const links = [
       <div key="links">
-        <li key="about"><Link className="nav-link" to="/about">About</Link></li>
-        <li key="events"><Link className="nav-link" to="/events">Events</Link></li>
-        <li key="moodle"><a className="nav-link" href="https://google.co.uk">Google</a></li>
-        <li key="google"><a className="nav-link" href="https://moodle.port.ac.uk">Moodle</a></li>
-
+        <li key="about">
+          <Link className="nav-link" to="/about">
+            About
+          </Link>
+        </li>
+        <li key="events">
+          <Link className="nav-link" to="/events">
+            Events
+          </Link>
+        </li>
+        <li key="moodle">
+          <a className="nav-link" href="https://google.co.uk">
+            Google
+          </a>
+        </li>
+        <li key="google">
+          <a className="nav-link" href="https://moodle.port.ac.uk">
+            Moodle
+          </a>
+        </li>
       </div>,
     ];
     return (
@@ -40,7 +52,9 @@ class Nav extends React.Component {
             <Link
               to="/"
               className={`center brand-logo nav-text ${this.props.className}`}
-            >The IT Society</Link>
+            >
+              The IT Society
+            </Link>
             <a
               href="#"
               data-activates="mobile-demo"

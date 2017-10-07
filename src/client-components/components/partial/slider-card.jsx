@@ -23,20 +23,21 @@ class Slider extends React.Component {
         <div className="col s12 m12">
           <div className="card">
             <div className="card-image" />
-            { this.state.images.map((image) => {
-              return (
-                <div>
-                  <img alt="" src={image.src} />
-                  <div className="caption center-align">
-                    <h3>{image.tagline}</h3>
-                    { image.smallTag
-                          ? <h5 className="light grey-text text-lighten-3">{image.smallTag}</h5>
-                          : ''
-                        }
-                  </div>
+            {this.state.images.map(image => (
+              <div>
+                <img alt="" src={image.src} />
+                <div className="caption center-align">
+                  <h3>{image.tagline}</h3>
+                  {image.smallTag ? (
+                    <h5 className="light grey-text text-lighten-3">
+                      {image.smallTag}
+                    </h5>
+                  ) : (
+                    ''
+                  )}
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -23,13 +23,11 @@ class Layout extends React.Component {
     return (
       <div className="main-container">
         <Partial.Nav className="transparent" scrollPos={250} />
-        <div className="container">
-          {this.props.children}
-        </div>
+        <div className="container">{this.props.children}</div>
         <Partial.Footer color="blue-grey darken-3" />
       </div>
     );
   }
-};
+}
 
 export default Layout;

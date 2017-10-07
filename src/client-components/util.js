@@ -1,6 +1,17 @@
 import marked from 'marked';
 import htmlToReact from 'html-to-react';
 
+const materialRenderer = new marked.Renderer();
+
+materialRenderer.list = (body, ordered) => {
+  if (ordered) {
+    return `<ol>${body}</ol>`;
+  }
+  return `<ul class="collection">${body}</ul>`;
+};
+
+materialRenderer.listitem = text => `<li class="collection-item">${text}</li>`;
+
 /**
  * Used so that the response from contentful - in md
  * can be changed in to HTML
@@ -9,12 +20,12 @@ import htmlToReact from 'html-to-react';
  */
 const markdownToReact = md => {
   if (md !== undefined) {
-    const parsedMarkdown = marked(md);
+    const parsedMarkdown = marked(md, { renderer: materialRenderer });
     const parser = new htmlToReact.Parser();
     return parser.parse(parsedMarkdown);
   }
   console.warn('undefined passed to markdownToReact');
-  return 'error';
+  return 'error parsing markdown';
 };
 
 /**
@@ -34,7 +45,7 @@ const intToMoney = num => {
  */
 const addClasses = (obj, ...classes) => {
   classes.forEach(cls => obj.classList.add(cls));
-}
+};
 
 /**
  * Given a HTMLElement, remove any given number of classes from it
@@ -43,7 +54,7 @@ const addClasses = (obj, ...classes) => {
  */
 const removeClasses = (obj, ...classes) => {
   classes.forEach(cls => obj.classList.remove(cls));
-}
+};
 
 /**
  * Change the nav color based on whether it overlaps the main 'opening-content' object
@@ -59,19 +70,25 @@ const updateNav = () => {
   const navItems = [navButton, navLogo, ...navTexts];
 
   // get the points on the DOM to compare
-  const nav = document.querySelector('nav')
+  const nav = document.querySelector('nav');
   const navBot = nav.getBoundingClientRect().bottom;
-  const scrollPos = document.querySelector('.opening-content').getBoundingClientRect().top;
+  const scrollPos = document
+    .querySelector('.opening-content')
+    .getBoundingClientRect().top;
 
   // if they're overlapping, darken them
   if (scrollPos <= navBot) {
     nav.classList = 'center grey lighten-5';
-    navItems.map(navItem => addClasses(navItem, 'blue-grey-text', 'text-darken-4'));
+    navItems.map(navItem =>
+      addClasses(navItem, 'blue-grey-text', 'text-darken-4'),
+    );
   } else {
     nav.classList = 'center transparent';
-    navItems.map(navItem => removeClasses(navItem, 'blue-grey-text', 'text-darken-4'));
+    navItems.map(navItem =>
+      removeClasses(navItem, 'blue-grey-text', 'text-darken-4'),
+    );
   }
-}
+};
 
 module.exports = {
   markdownToReact,

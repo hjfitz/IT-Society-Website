@@ -3,7 +3,7 @@ import React from 'react';
 
 // standard materialize card. allows for images and buttons
 // title is mandatory
-const Card = (props) => {
+const Card = props => {
   const header = <span className="card-title">{props.header}</span>;
   const cardSize = props.width ? `s${props.width} m${props.width}` : 's12 m6';
   return (
@@ -11,19 +11,24 @@ const Card = (props) => {
       <div className={`col ${cardSize}`}>
         <div className="card">
           {/* If there's an image, put it, and the header above the content. */}
-          {props.image
-            ? (
-              <div className="card-image">
-                <img alt="" src={props.imageSrc} />
-                {header}
-              </div>)
-            : ''}
+          {props.image ? (
+            <div className="card-image">
+              <img alt="" src={props.imageSrc} />
+              {header}
+            </div>
+          ) : (
+            ''
+          )}
           <div className="card-content">
-            {/* if there's an image, don't place the header here*/}
+            {/* if there's an image, don't place the header here */}
             {props.image ? '' : header}
             {props.children}
           </div>
-          {props.buttons ? <div className="card-action"> {props.links} </div> : ''}
+          {props.buttons ? (
+            <div className="card-action"> {props.links} </div>
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </div>

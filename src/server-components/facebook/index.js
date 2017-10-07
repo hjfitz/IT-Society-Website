@@ -1,23 +1,22 @@
 const fetch = require('node-fetch');
 const express = require('express');
 const chalk = require('chalk');
+const util = require('../../../util');
 
 const router = express.Router();
 const prefix = chalk.blue.bold('[FACEBOOK]');
 const graphURL = 'https://graph.facebook.com/';
 const access = `?access_token=${process.env.FACEBOOK_ACCESS}`;
 
-const print = msg => require('../../../util').print(prefix, msg);
+const print = msg => util.print(prefix)(msg);
 
 const groupID = '148498079028819';
 
-
-
 router.get('/posts', async (req, res) => {
-  const postsURL = `${graphURL}${groupID}${access}`;
+  const postsURL = `${graphURL}${groupID}/posts${access}`;
   const rawPosts = await fetch(postsURL);
   const posts = await rawPosts.json();
-  print(`Returning ${posts.data.length} posts @ /api/facebook/posts`);
+  print('Returning posts @ /api/facebook/posts');
   res.json(posts.data);
 });
 
@@ -28,6 +27,6 @@ router.get('/post/:id', async (req, res) => {
   const rawPost = await fetch(postURL);
   const post = await rawPost.json();
   res.json(post);
-})
+});
 
 module.exports = router;

@@ -4,7 +4,6 @@ import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
 
-
 const styles = {
   card: {
     maxWidth: 345,
@@ -39,7 +38,6 @@ const AvatarCard = props => {
         </CardContent>
       </Card>
     </Grid>
-
   );
 };
 

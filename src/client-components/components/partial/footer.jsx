@@ -17,9 +17,21 @@ const Footer = () => {
 
   const links = (
     <ul>
-      <li><Link className="grey-text text-lighten-3" to="/">Home</Link></li>
-      <li><Link className="grey-text text-lighten-3" to="/events">Events</Link></li>
-      <li><Link className="grey-text text-lighten-3" to="/about">About</Link></li>
+      <li>
+        <Link className="grey-text text-lighten-3" to="/">
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link className="grey-text text-lighten-3" to="/events">
+          Events
+        </Link>
+      </li>
+      <li>
+        <Link className="grey-text text-lighten-3" to="/about">
+          About
+        </Link>
+      </li>
     </ul>
   );
 
@@ -29,7 +41,10 @@ const Footer = () => {
         <div className="row">
           <div className="white-text col l6 s12">
             <h5>The IT Soceity</h5>
-            <p>Proudly sponsored by <a href="https://www.spectrumit.co.uk/">Spectrum IT</a></p>
+            <p>
+              Proudly sponsored by{' '}
+              <a href="https://www.spectrumit.co.uk/">Spectrum IT</a>
+            </p>
             <p>social icons go here</p>
           </div>
           <div className="col l4 offset-l2 s12">
@@ -39,12 +54,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-copyright">
-        <div className="container">
-          {copyleft}
-        </div>
+        <div className="container">{copyleft}</div>
       </div>
     </footer>
-
   );
 };
 

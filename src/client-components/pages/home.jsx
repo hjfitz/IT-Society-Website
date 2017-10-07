@@ -3,16 +3,35 @@ import { CircularProgress } from 'material-ui/Progress';
 
 import { Card } from '../components/partial';
 
+const getEvents = async () => {
+  const rawEvents = await fetch('/api/contentful/events');
+  const events = await rawEvents.json();
+  return events;
+};
+
+const getPosts = async () => {
+  const rawFacebookPosts = await fetch('/api/facebook/posts');
+  const facebookPosts = await rawFacebookPosts.json();
+  return facebookPosts;
+};
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    children: (<div style={{ width: '50px', margin: '1% auto'}}><CircularProgress color="accent" size={50} /></div>),
+      children: (
+        <div style={{ width: '50px', margin: '1% auto' }}>
+          <CircularProgress color="accent" size={50} />
+        </div>
+      ),
     };
+    this.populatePage = this.populatePage.bind(this);
   }
 
-  componentWillMount() {
-    this.populatePage();
+  async componentWillMount() {
+    const events = await getEvents();
+    const posts = await getPosts();
+    this.populatePage({ events, posts });
   }
 
   componentDidMount() {
@@ -26,15 +45,9 @@ class Home extends React.Component {
     });
   }
 
-
-
-  async populatePage() {
-    const rawFacebookPosts = await fetch('/api/facebook/posts');
-    const facebookPosts = await rawFacebookPosts.json();
-    const rawEvents = await fetch('/api/contentful/events');
-    const events = await rawEvents.json();
-
-    console.log(facebookPosts);
+  populatePage({ events, posts }) {
+    console.log('gotten posts');
+    console.log(posts);
     console.log(events);
     // TODO: render these in react for the homepage
   }
@@ -42,14 +55,13 @@ class Home extends React.Component {
   render() {
     return (
       <section>
-        <Card className="opening-content" width="12" >
+        <Card className="opening-content" width="12">
           {this.state.children}
           <input id="googleSearch" type="text" placeholder="Search Google" />
         </Card>
       </section>
     );
   }
-
 }
 
 export default Home;

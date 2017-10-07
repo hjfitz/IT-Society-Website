@@ -5,7 +5,7 @@ const path = require('path');
 const util = require('./util');
 
 const prefix = chalk.white.bold('[SERVER]');
-const print = msg => util.print(prefix, msg);
+const print = msg => util.print(prefix)(msg);
 print('Initialising...');
 
 util.checkEnv();

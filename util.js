@@ -4,7 +4,7 @@ const chalk = require('chalk');
  * Colorise our CRUD based on the request
  * @param {String} method The method used with the server
  */
-const formatMethod = (method) => {
+const formatMethod = method => {
   switch (method) {
     case 'GET':
       return chalk.green('GET');
@@ -24,11 +24,11 @@ const formatMethod = (method) => {
  * @param {String} prefix What we want to prepend
  * @param {String} msg Message to print
  */
-const print = (prefix, msg) => { if (process.env.DEBUG === 'true') console.log(`${prefix} ${msg}`); };
+const print = prefix => msg => console.log(`${prefix} ${msg}`);
 
 // pretty printer for this file
-const utilPrint = msg => print('[UTIL]', msg);
-utilPrint('Module loaded')
+const utilPrint = msg => print('[UTIL]')(msg);
+utilPrint('Module loaded');
 
 /**
  * Go through the vars we need to make the site work
@@ -53,7 +53,7 @@ const checkEnv = () => {
   } else {
     utilPrint(chalk.green('.env loaded successfully'));
   }
-}
+};
 
 module.exports = {
   formatMethod,

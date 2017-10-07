@@ -8,7 +8,7 @@ class About extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      committeeMembers: (<CircularProgress color="accent" size={50} />),
+      committeeMembers: <CircularProgress color="accent" size={50} />,
     };
   }
 
@@ -17,17 +17,15 @@ class About extends React.Component {
     const committee = await rawCommittee.json();
     const rawMembers = committee[0].fields.committeeMembers;
     this.setState({
-      committeeMembers: rawMembers.map(member => {
-        return (
-          <AvatarCard
-            key={member.sys.id}
-            imgSrc={`https:${member.fields.memberPicture.fields.file.url}`}
-            email={member.fields.memberEmailAddress}
-            name={member.fields.memberName}
-            role={member.fields.memberRole}
-          />
-        );
-      }),
+      committeeMembers: rawMembers.map(member => (
+        <AvatarCard
+          key={member.sys.id}
+          imgSrc={`https:${member.fields.memberPicture.fields.file.url}`}
+          email={member.fields.memberEmailAddress}
+          name={member.fields.memberName}
+          role={member.fields.memberRole}
+        />
+      )),
     });
   }
 
